@@ -1,0 +1,6 @@
+{
+  "auth": {
+    "masterKey": "somekey"
+  },
+  "port": 3000
+}
