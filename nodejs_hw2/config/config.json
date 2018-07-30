@@ -2,5 +2,11 @@
   "auth": {
     "masterKey": "somekey"
   },
-  "port": 3000
+  "port": 3000,
+  "routes": {
+    "pizza": "/pizza",
+    "order": "/order",
+    "login": "/login",
+    "register": "/register"
+  }
 }
