@@ -1,12 +1,15 @@
 const express = require("express");
+const config = require("../config/config");
 const router = express.Router();
 const pizzas = {};
 
-router.get("/", (req, res) => {
+const { root, param } = config.routes;
+
+router.get(root, (req, res) => {
   res.json(pizzas);
 });
 
-router.get("/:id", (req, res) => {
+router.get(param, (req, res) => {
   const { id } = req.params;
 
   if (!pizzas[id]) {
@@ -16,7 +19,7 @@ router.get("/:id", (req, res) => {
   }
 });
 
-router.put("/:id", (req, res) => {
+router.put(param, (req, res) => {
   const { id } = req.params;
 
   if (!pizzas[id]) {
@@ -27,13 +30,13 @@ router.put("/:id", (req, res) => {
   }
 });
 
-router.delete("/:id", (req, res) => {
+router.delete(param, (req, res) => {
   const { id } = req.params;
   delete pizzas[id];
   res.end();
 });
 
-router.post("/:id", (req, res) => {
+router.post(param, (req, res) => {
   const { id } = req.params;
 
   pizzas[id] = req.body;

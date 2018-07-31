@@ -7,6 +7,8 @@
     "pizza": "/pizza",
     "order": "/order",
     "login": "/login",
-    "register": "/register"
+    "register": "/register",
+    "root": "/",
+    "param": "/:id"
   }
 }

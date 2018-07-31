@@ -1,12 +1,15 @@
 const express = require("express");
+const config = require("../config/config");
 const router = express.Router();
 const orders = {};
 
-router.get("/", (req, res) => {
+const { root } = config.routes;
+
+router.get(root, (req, res) => {
   res.json(orders);
 });
 
-router.post("/", (req, res) => {
+router.post(root, (req, res) => {
   const id = Object.keys(orders).length;
   orders[id] = req.body;
   res.end();
