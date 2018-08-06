@@ -17,7 +17,7 @@ app.use((req, res, next) => {
 
 // endpoint = url + method
 
-// Controller
+// Controllers for Users
 const getUsers = (req, res, next) => {
   req.users = USERS;
   next();
@@ -30,7 +30,6 @@ const addUser = (req, res, next) => {
   next();
 };
 
-// Controller
 const sendUsers = (req, res, next) => {
   res.status(200);
   res.json(req.users);
@@ -54,11 +53,7 @@ const deleteUser = (req, res, next) => {
   next();
 };
 
-const sendMessage = (req, res, next) => {
-  res.status(200);
-  res.send("Entry was deleted");
-};
-
+// Controllers for Users
 const getBooks = (req, res, next) => {
   const index = req.params.index;
   req.books = USERS[index].books;
@@ -102,6 +97,12 @@ const deleteBook = (req, res, next) => {
   next();
 };
 
+const sendMessage = (req, res, next) => {
+  res.status(200);
+  res.send("Entry was deleted");
+};
+
+//Controllers for last task
 const findUserBooks = (req, res, next) => {
   const { index, title } = req.params;
   const books = USERS[index].books;
