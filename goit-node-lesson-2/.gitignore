@@ -1,4 +1,5 @@
 node_modules/
 .idea/
+package-lock.json
 config/production.json
 userful_links.txt
