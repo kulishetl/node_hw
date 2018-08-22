@@ -2,7 +2,7 @@
 const express = require("express");
 const app = express();
 const slug = require("slug");
-const merge = require("lodash/merge");
+const { merge } = require("lodash");
 const config = require("./config/development");
 const bodyParser = require("body-parser");
 const USERS = require("./mock-data/users");
@@ -77,7 +77,9 @@ const updateBook = (req, res, next) => {
   const { index, title } = req.params;
   const updateInfo = req.body;
   const books = USERS[index].books;
-  const findBook = books.find(el => slug(el.title.toLowerCase()) === title);
+  const findBook = books.find(
+    el => slug(el.title.toLowerCase()) === title.toLowerCase()
+  );
   req.book = merge(findBook, updateInfo);
   next();
 };
